@@ -1,0 +1,50 @@
+body {
+  background-image: url("../../assets/img/wallpaperflare.com_wallpaper.jpg");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.landingcont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.landingHomeButton {
+  /* background: var(--fire-engine-red);
+  border: 1px solid var(--fire-engine-red); */
+  border-radius: 6px;
+  box-shadow: white 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  transition: 0.3s;
+}
+
+.landingHomeButton:hover,
+.landingHomeButton:active {
+  /* background-color: var(--xanthous); */
+  background-position: 0 0;
+  color: red;
+}
+
+.landingHomeButton:active {
+  opacity: 0.5;
+}
