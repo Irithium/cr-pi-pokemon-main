@@ -19,6 +19,7 @@ const postPokemon = async (
   Types
 ) => {
   // Creamos un Pokemon
+
   const pokemon = await Pokemon.create({
     name,
     image,
@@ -63,11 +64,11 @@ const getPokemonDb = async () => {
 
 // Función GET para buscar los pokemon de la Api
 const getPokemonApi = async () => {
-  const { data } = await axios(`${POKEAPI}?offset=0&limit=100`);
+  const { data } = await axios(`${POKEAPI}?offset=151&limit=100`);
 
   const pokemonArr = await Promise.all(
     data.results.map(async (pokemon) => {
-      const { data } = await axios(`${pokemon.url}`);
+      const { data } = await axios.get(`${pokemon.url}`);
       const imgObj = Object.values(data.sprites.other);
 
       const createdPokemon = {
@@ -101,6 +102,7 @@ const pokemonById = async (id) => {
     return pokemonId;
   }
   const { data } = await axios(`${POKEAPI}/${id}`);
+  console.log(data);
   const imgObj = Object.values(data.sprites.other);
   const pokemon = {
     id: data.id,
@@ -191,9 +193,61 @@ const getPokemon = async () => {
   return allPokemon;
 };
 
+const updatePokemon = async (
+  id,
+  name,
+  image,
+  health,
+  attack,
+  defense,
+  spAttack,
+  spDefense,
+  speed,
+  height,
+  weight
+) => {
+  let pokemonToUpdate = await Pokemon.findOne({ where: { id: id } });
+  let updates = {};
+  if (name !== undefined) updates.name = name;
+  if (image !== undefined) updates.image = image;
+  if (health !== undefined) updates.health = health;
+  if (attack !== undefined) updates.attack = attack;
+  if (defense !== undefined) updates.defense = defense;
+  if (spAttack !== undefined) updates.spAttack = spAttack;
+  if (spDefense !== undefined) updates.spDefense = spDefense;
+  if (speed !== undefined) updates.speed = speed;
+  if (height !== undefined) updates.height = height;
+  if (weight !== undefined) updates.weight = weight;
+  console.log(updates.name);
+  console.log(name);
+  await pokemonToUpdate.update({
+    name: name,
+    image: image ? image : IMG,
+    health: health,
+    attack: attack,
+    defense: defense,
+    speed: speed,
+    height: height,
+    weight: weight,
+  });
+
+  return pokemonToUpdate;
+};
+
+let deletePokemon = async (id) => {
+  let toDelete = await Pokemon.findOne({ where: { id: id } });
+  if (!toDelete) {
+    throw new Error("Pokemon not found");
+  }
+  await toDelete.destroy();
+  return `Pokemon ${toDelete.name} successfully removed`;
+};
+
 module.exports = {
   postPokemon,
   getPokemon,
   pokemonById,
   pokemonByName,
+  updatePokemon,
+  deletePokemon,
 };

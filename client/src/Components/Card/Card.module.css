@@ -1,0 +1,325 @@
+.myCard {
+  background-color: transparent;
+  width: 190px;
+  height: 254px;
+  perspective: 1000px;
+  margin-top: 20px;
+}
+
+/* Titulo */
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.innerCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.myCard:hover .innerCard {
+  transform: rotateY(180deg);
+}
+
+.frontSide,
+.backSide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+.frontSide,
+.frontSide::before {
+  background: url(https://wallpaperaccess.com/download/pokemon-forest-1089608);
+  background-size: cover;
+}
+
+.backSide,
+.backSide::before {
+  background: url(https://wallpaperaccess.com/download/pokemon-forest-1089608);
+  background-size: cover;
+}
+
+.backSide {
+  transform: rotateY(180deg);
+}
+
+.frontSide::before,
+.backSide::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  z-index: -1;
+  border-radius: 1em;
+  filter: blur(20px);
+  animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Imagen */
+.portrait {
+  max-width: 90%;
+}
+
+/* Name */
+
+.name {
+  text-transform: capitalize;
+  color: var(--black);
+  padding: 5px 10px;
+  background-color: var(--green);
+  margin: 0;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+.specs {
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: row;
+}
+
+.weight,
+.height {
+  color: var(--black);
+  padding: 5px 10px;
+  background-color: var(--green);
+  margin: 0px 10px;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+.detailButton {
+  --bg: #000;
+  --hover-text: #000;
+  font-weight: 700;
+  color: var(--hover-text);
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 5px 10px;
+  background: var(--green);
+  transition: 0.2s;
+  border-radius: 20px;
+}
+
+.detailButton:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--blue);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.detailButton:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+/* p Per Type */
+.normal {
+  color: var(--black);
+  background-color: #a8a77a;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.fire {
+  color: var(--black);
+  background-color: #ee8130;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.water {
+  color: var(--black);
+  background-color: #6390f0;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.electric {
+  color: var(--black);
+  background-color: #f7d02c;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.grass {
+  color: var(--black);
+  background-color: #7ac74c;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.flying {
+  color: var(--black);
+  background-color: #a98ff3;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.ice {
+  color: var(--black);
+  background-color: #96d9d6;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.fighting {
+  color: var(--black);
+  background-color: #c22e28;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.normal {
+  color: var(--black);
+  background-color: #a8a77a;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.poison {
+  color: var(--black);
+  background-color: #a33ea1;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.ground {
+  color: var(--black);
+  background-color: #e2bf65;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.psychic {
+  color: var(--black);
+  background-color: #f95587;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.bug {
+  color: var(--black);
+  background-color: #a6b91a;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.rock {
+  color: var(--black);
+  background-color: #b6a136;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.ghost {
+  color: var(--black);
+  background-color: #735797;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.dragon {
+  color: var(--black);
+  background-color: #6f35fc;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.dark {
+  color: var(--black);
+  background-color: #705746;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.steel {
+  color: var(--black);
+  background-color: #b7b7ce;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}
+.fairy {
+  color: var(--black);
+  background-color: #d685ad;
+  padding: 10px 10px;
+  border: 1px solid;
+  border-radius: 30px;
+  margin: 0px 4px;
+  width: 59px;
+}

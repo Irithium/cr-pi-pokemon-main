@@ -1,0 +1,71 @@
+.bigCont {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #b68d40;
+  height: 40px;
+  width: fit-content;
+  background: linear-gradient(0deg, var(--green) 0%, var(--blue) 50%);
+  box-shadow: 3px 3px 2px 1px var(--black);
+  border-radius: 10px;
+}
+.button,
+.startBttn,
+.endBttn {
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--black);
+  background-color: inherit;
+  color: var(--black);
+  border-radius: 30px;
+  padding: 5px 10px;
+  margin: 7px 3px;
+  min-width: 35px;
+}
+.button:focus {
+  border: 1px solid var(--black);
+  color: #122620;
+  background-color: var(--yellow);
+}
+.button:hover {
+  background-color: var(--yellow);
+  color: #122620;
+  transition: all 0.2s ease-in-out;
+}
+
+.startBttn {
+  margin-left: 10px;
+}
+
+.endBttn {
+  margin-right: 10px;
+}
+
+.startBttn:focus {
+  border: 1px solid var(--black);
+  color: #122620;
+  background-color: var(--yellow);
+}
+.endBttn:focus {
+  border: 1px solid var(--black);
+  color: #122620;
+  background-color: var(--yellow);
+}
+
+.startBttn:hover {
+  background-color: var(--yellow);
+  color: #122620;
+  transition: all 0.2s ease-in-out;
+}
+
+.endBttn:hover {
+  background-color: var(--yellow);
+  color: #122620;
+  transition: all 0.2s ease-in-out;
+}

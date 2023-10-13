@@ -1,0 +1,16 @@
+.image {
+  max-width: 15%;
+  height: auto;
+}
+
+.formatCont {
+  box-sizing: border-box;
+}
+
+.gif {
+  overflow: hidden;
+  width: 580px;
+  height: 500px;
+  margin-top: 35px;
+  margin-left: 10%;
+}

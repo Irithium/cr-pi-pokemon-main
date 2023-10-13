@@ -1,0 +1,47 @@
+.input {
+  --bg: #000;
+  --hover-text: #000;
+  color: var(--hover-text);
+  font-weight: 700;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--white);
+  transition: 0.2s;
+  max-width: 200px;
+  border-radius: 40px 0px 0px 20px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.input:active {
+  box-shadow: 2px 2px 15px var(--black) inset;
+}
+
+.button {
+  --bg: #000;
+  --hover-text: #000;
+  color: var(--hover-text);
+  font-weight: 700;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--white);
+  transition: 0.2s;
+  max-width: 200px;
+  border-radius: 0px 20px 40px 0px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--yellow);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.button:active {
+  transform: translate(0);
+  box-shadow: none;
+}

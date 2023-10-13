@@ -1,0 +1,110 @@
+.navCont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: var(--black);
+  border-bottom: 2px solid var(--white);
+  border-radius: 0px 0px 20px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.button {
+  --bg: #000;
+  --hover-text: #000;
+  color: var(--hover-text);
+  font-weight: 700;
+  border: 1px solid var(--bg);
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--white);
+  transition: 0.2s;
+  border-radius: 40px 20px 40px 20px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.button:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--yellow);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.button:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+/* Log Out Button */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--white);
+  margin-top: 4px;
+  margin-bottom: 3px;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: var(--black);
+}
+/* text */
+.text {
+  position: absolute;
+  right: -15%;
+  width: 0%;
+  opacity: 0;
+  color: var(--black);
+  font-size: 1em;
+  font-weight: 700;
+  transition-duration: 0.3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 105px;
+  border-radius: 40px;
+  background-color: var(--yellow);
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .sign {
+  width: 25%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}

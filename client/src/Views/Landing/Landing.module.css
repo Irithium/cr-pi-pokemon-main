@@ -1,50 +1,68 @@
-body {
-  background-image: url("../../assets/img/wallpaperflare.com_wallpaper.jpg");
+html {
+  background-image: url("../../Assets/wallpaperflare.com_wallpaper.jpg");
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
 }
 
-.landingcont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* Gif principal */
+.pikachuGif {
+  max-width: 25%;
+  max-height: 20%;
+  border: 5px solid var(--green);
+  border-radius: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.landingHomeButton {
-  /* background: var(--fire-engine-red);
-  border: 1px solid var(--fire-engine-red); */
-  border-radius: 6px;
-  box-shadow: white 1px 2px 4px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
+/* Titulo */
+.titleContainer {
   display: inline-block;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 16px;
-  min-height: 40px;
-  outline: 0;
-  padding: 12px 14px;
-  text-align: center;
-  text-rendering: geometricprecision;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  transition: 0.3s;
+  border-left: 5px outset var(--green);
+  border-bottom: 5px inset var(--blue);
+  border-right: 5px inset var(--blue);
+  border-top: 5px outset var(--green);
+  border-radius: 70px 20px 70px 20px;
+  background: linear-gradient(0deg, var(--green) 0%, var(--blue) 50%);
+  margin-bottom: 30px;
 }
 
-.landingHomeButton:hover,
-.landingHomeButton:active {
-  /* background-color: var(--xanthous); */
-  background-position: 0 0;
-  color: red;
+.title {
+  font-size: 3em;
+  color: var(--black);
 }
 
-.landingHomeButton:active {
-  opacity: 0.5;
+/* Gif secundario */
+.greetingPikachu {
+  max-width: 6%;
+  max-height: 12%;
+  height: auto;
+}
+
+/* boton HOME */
+
+.homeButton {
+  --bg: #000;
+  --hover-text: #000;
+  color: var(--hover-text);
+  border: 1px solid var(--bg);
+  padding: 0.8em 2em;
+  font-size: 1em;
+  font-weight: 700;
+  background: var(--green);
+  transition: 0.2s;
+  border-radius: 40px 20px 40px 20px;
+}
+
+.homeButton:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--blue);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.homeButton:active {
+  transform: translate(0);
+  box-shadow: none;
 }
