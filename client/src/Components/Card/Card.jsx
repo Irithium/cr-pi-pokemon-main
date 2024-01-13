@@ -63,39 +63,74 @@ const Card = (props) => {
         return null;
     }
   };
-
-  return (
-    <div className={style.myCard}>
-      <Link to={`/detail/${props.id}`}>
-        <div className={style.innerCard}>
-          <div className={style.frontSide}>
-            <img src={props.image} alt="" className={style.portrait} />
-          </div>
-          <div className={style.backSide}>
-            <p className={style.name}>{props.name}</p>
-
-            <div className={style.specs}>
-              <p>{pPerType(props.types[0])}</p>
-              <p> {props.types[1] ? pPerType(props.types[1]) : null}</p>
+  if (isNaN(props.id)) {
+    return (
+      <div className={style.myCard}>
+        <Link to={`/detail/${props.id}`}>
+          <div className={style.innerCard}>
+            <div className={style.frontSide}>
+              <img src={props.image} alt="" className={style.portrait} />
             </div>
+            <div className={style.backSide}>
+              <p className={style.name}>{props.name}</p>
 
-            <div className={style.specs}>
-              <p className={style.weight}>
-                Weight: <br />
-                {props.weight / 10}kg
-              </p>
-              <p className={style.height}>
-                Height: <br />
-                {props.height / 10}m
-              </p>
+              <div className={style.specs}>
+                <p>{pPerType(props.types[0].typeName)}</p>
+                <p>
+                  {props.types[1] ? pPerType(props.types[1].typeName) : null}
+                </p>
+              </div>
+
+              <div className={style.specs}>
+                <p className={style.weight}>
+                  Weight: <br />
+                  {props.weight / 10}kg
+                </p>
+                <p className={style.height}>
+                  Height: <br />
+                  {props.height / 10}m
+                </p>
+              </div>
+
+              {/* <button className={style.detailButton}>DETAILS</button> */}
             </div>
-
-            {/* <button className={style.detailButton}>DETAILS</button> */}
           </div>
-        </div>
-      </Link>
-    </div>
-  );
+        </Link>
+      </div>
+    );
+  } else
+    return (
+      <div className={style.myCard}>
+        <Link to={`/detail/${props.id}`}>
+          <div className={style.innerCard}>
+            <div className={style.frontSide}>
+              <img src={props.image} alt="" className={style.portrait} />
+            </div>
+            <div className={style.backSide}>
+              <p className={style.name}>{props.name}</p>
+
+              <div className={style.specs}>
+                <p>{pPerType(props.types[0])}</p>
+                <p> {props.types[1] ? pPerType(props.types[1]) : null}</p>
+              </div>
+
+              <div className={style.specs}>
+                <p className={style.weight}>
+                  Weight: <br />
+                  {props.weight / 10}kg
+                </p>
+                <p className={style.height}>
+                  Height: <br />
+                  {props.height / 10}m
+                </p>
+              </div>
+
+              {/* <button className={style.detailButton}>DETAILS</button> */}
+            </div>
+          </div>
+        </Link>
+      </div>
+    );
 };
 
 export default Card;

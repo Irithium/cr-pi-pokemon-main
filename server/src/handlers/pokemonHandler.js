@@ -6,6 +6,7 @@ const {
   pokemonByName,
   updatePokemon,
   deletePokemon,
+  byGen,
 } = require("../controllers/pokemonController");
 
 //Handlers
@@ -21,8 +22,21 @@ const postPokemonHandler = async (req, res) => {
     speed,
     weight,
     height,
-    Types,
+    types,
   } = req.body;
+  console.log(
+    name,
+    image,
+    hp,
+    attack,
+    defense,
+    spAttack,
+    spDefense,
+    speed,
+    weight,
+    height,
+    types
+  );
   if (
     !name ||
     !image ||
@@ -34,7 +48,7 @@ const postPokemonHandler = async (req, res) => {
     !speed ||
     !weight ||
     !height ||
-    !Types
+    !types
   )
     res.status(400).send("Missing Data");
   try {
@@ -49,7 +63,7 @@ const postPokemonHandler = async (req, res) => {
       speed,
       weight,
       height,
-      Types
+      types
     );
 
     res.status(201).json(response);
@@ -62,6 +76,17 @@ const postPokemonHandler = async (req, res) => {
 const getPokemonHandler = async (req, res) => {
   try {
     const response = await getPokemon();
+
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const getPokemonByGenHandler = async (req, res) => {
+  let { gen } = req.query;
+  try {
+    const response = await byGen(gen);
 
     res.status(200).json(response);
   } catch (error) {
@@ -146,4 +171,5 @@ module.exports = {
   pokemonByNameHandler,
   updatePokemonHandler,
   deletePokemonHandler,
+  getPokemonByGenHandler,
 };

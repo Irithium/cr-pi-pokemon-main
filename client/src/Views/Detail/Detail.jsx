@@ -90,78 +90,160 @@ const Detail = () => {
   const handleModify = (id) => {
     dispatch(modifyPokemon(pokemon.id));
   };
-
-  return (
-    <div>
-      {pokemon?.image ? (
-        <div className={style.detCont}>
-          <Link to={`/detail/${pokemon.id - 1}`}>
-            {pokemon.id !== 1 ? (
-              <button className={style.bttn}>&lt;</button>
-            ) : null}
-          </Link>
-          <div className={style.firstCont}>
-            <div className={style.name}>{pokemon?.name}</div>
-            <img
-              src={pokemon?.image}
-              alt="PokemonPhoto"
-              className={style.portrait}
-            />
-          </div>
-
-          <div className={style.secondCont}>
-            <label className={style.statsTitle}>Statistics:</label>
-            <div className={style.statCont}>
-              <div className={style.statChild1}>HP: {pokemon?.hp}</div>
-              <p className={style.statChild2}>Attack: {pokemon?.attack}</p>
-              <p className={style.statChild3}>Defense: {pokemon?.defense}</p>
-              <p className={style.statChild4}>SpAttack: {pokemon?.spAttack}</p>
-              <p className={style.statChild5}>
-                SpDefense: {pokemon?.spDefense}
-              </p>
-              <p className={style.statChild6}>Speed: {pokemon?.speed}</p>
+  console.log(pokemon);
+  if (isNaN(pokemon.id)) {
+    return (
+      <div>
+        {pokemon?.image ? (
+          <div className={style.detCont}>
+            <Link to={`/detail/${pokemon.id - 1}`}>
+              {pokemon.id !== 1 ? (
+                <button className={style.bttn}>&lt;</button>
+              ) : null}
+            </Link>
+            <div className={style.firstCont}>
+              <div className={style.name}>{pokemon?.name}</div>
+              <img
+                src={pokemon?.image}
+                alt="PokemonPhoto"
+                className={style.portrait}
+              />
             </div>
 
-            <div className={style.specs}>
-              <p>{pokemon.Types ? pPerType(pokemon.Types[0]) : null}</p>
-              <p> {pokemon.Types ? pPerType(pokemon.Types[1]) : null}</p>
+            <div className={style.secondCont}>
+              <label className={style.statsTitle}>Statistics:</label>
+              <div className={style.statCont}>
+                <div className={style.statChild1}>HP: {pokemon?.hp}</div>
+                <p className={style.statChild2}>Attack: {pokemon?.attack}</p>
+                <p className={style.statChild3}>Defense: {pokemon?.defense}</p>
+                <p className={style.statChild4}>
+                  SpAttack: {pokemon?.spAttack}
+                </p>
+                <p className={style.statChild5}>
+                  SpDefense: {pokemon?.spDefense}
+                </p>
+                <p className={style.statChild6}>Speed: {pokemon?.speed}</p>
+              </div>
 
-              <p className={style.weight}>{pokemon.weight / 10} kg</p>
-              <p className={style.height}>{pokemon.height / 10} m</p>
+              <div className={style.specs}>
+                <p>
+                  {pokemon.Types ? pPerType(pokemon.Types[0].typeName) : null}
+                </p>
+                <p>
+                  {" "}
+                  {pokemon.Types ? pPerType(pokemon.Types[1].typeName) : null}
+                </p>
+
+                <p className={style.weight}>{pokemon.weight / 10} kg</p>
+                <p className={style.height}>{pokemon.height / 10} m</p>
+              </div>
+
+              {isNaN(pokemon.id) ? (
+                <Link to="/home">
+                  <button onClick={handleDelete} className={style.delete}>
+                    <span>DELETE</span>
+                  </button>
+                </Link>
+              ) : (
+                <Link to={`/update/${pokemon.id}`}>
+                  <button onClick={handleModify} className={style.modify}>
+                    <span>MODIFY</span>
+                  </button>
+                </Link>
+              )}
+            </div>
+            <Link to={`/detail/${pokemon.id + 1}`}>
+              <button className={style.bttn}>&gt;</button>
+            </Link>
+          </div>
+        ) : (
+          <h3 className={style.loading}>
+            <iframe
+              title="loading"
+              src=" https://i.gifer.com/9xnj.gif"
+              width="720"
+              height="360"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </h3>
+        )}
+      </div>
+    );
+  } else
+    return (
+      <div>
+        {pokemon?.image ? (
+          <div className={style.detCont}>
+            <Link to={`/detail/${pokemon.id - 1}`}>
+              {pokemon.id !== 1 ? (
+                <button className={style.bttn}>&lt;</button>
+              ) : null}
+            </Link>
+            <div className={style.firstCont}>
+              <div className={style.name}>{pokemon?.name}</div>
+              <img
+                src={pokemon?.image}
+                alt="PokemonPhoto"
+                className={style.portrait}
+              />
             </div>
 
-            {isNaN(pokemon.id) ? (
-              <Link to="/home">
-                <button onClick={handleDelete} className={style.delete}>
-                  <span>DELETE</span>
-                </button>
-              </Link>
-            ) : (
-              <Link to={`/update/${pokemon.id}`}>
-                <button onClick={handleModify} className={style.modify}>
-                  <span>MODIFY</span>
-                </button>
-              </Link>
-            )}
+            <div className={style.secondCont}>
+              <label className={style.statsTitle}>Statistics:</label>
+              <div className={style.statCont}>
+                <div className={style.statChild1}>HP: {pokemon?.hp}</div>
+                <p className={style.statChild2}>Attack: {pokemon?.attack}</p>
+                <p className={style.statChild3}>Defense: {pokemon?.defense}</p>
+                <p className={style.statChild4}>
+                  SpAttack: {pokemon?.spAttack}
+                </p>
+                <p className={style.statChild5}>
+                  SpDefense: {pokemon?.spDefense}
+                </p>
+                <p className={style.statChild6}>Speed: {pokemon?.speed}</p>
+              </div>
+
+              <div className={style.specs}>
+                <p>{pokemon.Types ? pPerType(pokemon.Types[0]) : null}</p>
+                <p> {pokemon.Types ? pPerType(pokemon.Types[1]) : null}</p>
+
+                <p className={style.weight}>{pokemon.weight / 10} kg</p>
+                <p className={style.height}>{pokemon.height / 10} m</p>
+              </div>
+
+              {isNaN(pokemon.id) ? (
+                <Link to="/home">
+                  <button onClick={handleDelete} className={style.delete}>
+                    <span>DELETE</span>
+                  </button>
+                </Link>
+              ) : (
+                <Link to={`/update/${pokemon.id}`}>
+                  <button onClick={handleModify} className={style.modify}>
+                    <span>MODIFY</span>
+                  </button>
+                </Link>
+              )}
+            </div>
+            <Link to={`/detail/${pokemon.id + 1}`}>
+              <button className={style.bttn}>&gt;</button>
+            </Link>
           </div>
-          <Link to={`/detail/${pokemon.id + 1}`}>
-            <button className={style.bttn}>&gt;</button>
-          </Link>
-        </div>
-      ) : (
-        <h3 className={style.loading}>
-          <iframe
-            title="loading"
-            src=" https://i.gifer.com/9xnj.gif"
-            width="720"
-            height="360"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-        </h3>
-      )}
-    </div>
-  );
+        ) : (
+          <h3 className={style.loading}>
+            <iframe
+              title="loading"
+              src=" https://i.gifer.com/9xnj.gif"
+              width="720"
+              height="360"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </h3>
+        )}
+      </div>
+    );
 };
 
 export default Detail;

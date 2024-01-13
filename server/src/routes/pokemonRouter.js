@@ -4,6 +4,7 @@ const pokemonRouter = Router();
 const {
   getPokemonHandler,
   pokemonByIdHandler,
+  getPokemonByGenHandler,
   pokemonByNameHandler,
   postPokemonHandler,
   updatePokemonHandler,
@@ -11,6 +12,8 @@ const {
 } = require("../handlers/pokemonHandler");
 
 //Routes
+//Ruta de buscador de pokemon por nombre ✅
+pokemonRouter.get("/gen", getPokemonByGenHandler);
 //Ruta de buscador de pokemon por nombre ✅
 pokemonRouter.get("/name", pokemonByNameHandler);
 //Ruta de buscador de pokemon por Id ✅

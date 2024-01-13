@@ -28,12 +28,12 @@ const Home = () => {
   // CARGA DE TIPOS Y POKEMON
   useEffect(() => {
     dispatch(getTypes());
-
     dispatch(getPokemons()).then(() => setIsLoading(false));
     setGifIndex(Math.floor(Math.random() * loadingGifs.length));
   }, [dispatch, loadingGifs.length]);
 
   // FUNCIONES DE PAGINADO
+
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
   };
@@ -69,7 +69,6 @@ const Home = () => {
             <Filters setCurrentPage={setCurrentPage} />
             <Order />
           </div>
-
           <div className={style.pagCont}>
             <Pagination
               totalPages={Math.ceil(pokemon.length / cardsPerPage)}

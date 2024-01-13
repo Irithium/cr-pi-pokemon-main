@@ -1,8 +1,10 @@
 // Pokemon
 export const GET_POKEMONS = "GET_POKEMONS";
+export const GET_POKEMONS_BY_GEN = "GET_POKEMONS";
 export const MODIFY_POKEMON = "MODIFY_POKEMON";
 export const DELETE_POKEMON = "DELETE_POKEMON";
 export const GET_POKEMON_DETAIL = "GET_POKEMON_DETAIL";
+export const POST_POKEMON = "POST_POKEMON";
 // Types
 export const GET_TYPES = "GET_TYPES";
 // Filters

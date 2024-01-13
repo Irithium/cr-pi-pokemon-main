@@ -14,6 +14,8 @@ import {
   SEARCH_BY_ID,
   CLEAN_DETAIL,
   RESET,
+  GET_POKEMONS_BY_GEN,
+  POST_POKEMON,
 } from "../Actions/action-type";
 
 const initialState = {
@@ -39,6 +41,15 @@ const rootReducer = (state = initialState, action) => {
         doubleFilter: [],
       };
 
+    case GET_POKEMONS_BY_GEN:
+      return {
+        ...state,
+        pokemon: action.payload,
+        pokemonsFilter: action.payload,
+        pokemonBackup: action.payload,
+        doubleFilter: [],
+      };
+
     case GET_TYPES:
       return { ...state, types: action.payload };
 
@@ -46,6 +57,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonDetail: action.payload,
+      };
+
+    //! CASO POST
+    case POST_POKEMON:
+      return {
+        ...state,
       };
 
     //!CASO CLEAN
@@ -90,6 +107,12 @@ const rootReducer = (state = initialState, action) => {
         });
       } else
         orderName = state.pokemon.sort(function (a, b) {
+          if (isNaN(a.id)) {
+            return -1;
+          }
+          if (isNaN(b.id)) {
+            return -1;
+          }
           if (a.id > b.id) {
             return 1;
           }
@@ -108,6 +131,7 @@ const rootReducer = (state = initialState, action) => {
     case ORDER_BY_ATTACK:
       let orderAttack;
       if (action.payload === "asc") {
+        console.log(state.pokemon);
         orderAttack = state.pokemon.sort(function (a, b) {
           if (a.attack > b.attack) {
             return -1;
@@ -129,6 +153,12 @@ const rootReducer = (state = initialState, action) => {
         });
       } else {
         orderAttack = state.pokemon.sort(function (a, b) {
+          if (isNaN(a.id)) {
+            return -1;
+          }
+          if (isNaN(b.id)) {
+            return -1;
+          }
           if (a.id > b.id) {
             return 1;
           }
@@ -169,6 +199,12 @@ const rootReducer = (state = initialState, action) => {
         });
       } else {
         orderDefense = state.pokemon.sort(function (a, b) {
+          if (isNaN(a.id)) {
+            return -1;
+          }
+          if (isNaN(b.id)) {
+            return -1;
+          }
           if (a.id > b.id) {
             return 1;
           }
@@ -209,6 +245,12 @@ const rootReducer = (state = initialState, action) => {
         });
       } else {
         orderSpeed = state.pokemon.sort(function (a, b) {
+          if (isNaN(a.id)) {
+            return -1;
+          }
+          if (isNaN(b.id)) {
+            return -1;
+          }
           if (a.id > b.id) {
             return 1;
           }
@@ -309,6 +351,11 @@ const rootReducer = (state = initialState, action) => {
           filteredTypePokemons = state.doubleFilter;
         } else {
           filteredTypePokemons = state.doubleFilter.filter((poke) => {
+            if (isNaN(poke.id)) {
+              if (poke.Types[0].typeName === action.payload) return poke;
+              if (poke.Types[1].typeName && poke.Types[1] === action.payload)
+                return poke;
+            }
             if (poke.Types[0] === action.payload) return poke;
             if (poke.Types[1] && poke.Types[1] === action.payload) return poke;
           });
@@ -330,6 +377,12 @@ const rootReducer = (state = initialState, action) => {
           filteredTypePokemons = state.pokemonsFilter;
         } else {
           filteredTypePokemons = state.pokemonsFilter.filter((poke) => {
+            if (isNaN(poke.id)) {
+              if (poke.Types[0].typeName === action.payload) return poke;
+              if (poke.Types[1].typeName) {
+                if (poke.Types[1].typeName === action.payload) return poke;
+              }
+            }
             if (poke.Types[0] === action.payload) return true;
             if (poke.Types[1] && poke.Types[1] === action.payload) return true;
           });

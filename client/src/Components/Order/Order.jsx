@@ -5,6 +5,7 @@ import {
   orderByAttack,
   orderByDefense,
   orderBySpeed,
+  getPokemonsBygen,
 } from "../../Redux/Actions/index";
 import style from "./Order.module.css";
 
@@ -17,6 +18,23 @@ const Order = () => {
     dispatch(orderByName(orden));
     setOrder(`Orden ${orden}`);
   };
+
+  // const options = [
+  //   "first",
+  //   "second",
+  //   "third",
+  //   "fourth",
+  //   "fifth",
+  //   "sixth",
+  //   "seventh",
+  //   "eighth",
+  //   "nineth",
+  // ];
+
+  // const handleGen = (event) => {
+  //   const gen = event.target.value;
+  //   dispatch(getPokemonsBygen(gen));
+  // };
 
   const handleOrderAttack = (event) => {
     const orden = event.target.value;
@@ -68,6 +86,25 @@ const Order = () => {
           <option value="desc">DESCENDENTE</option>
         </select>
       </span>
+
+      {/* <span className={style.orderCont}>
+        <label className={style.label}>Gen:</label>
+        <select
+          id="Gen"
+          className={style.select}
+          onChange={(event) => {
+            handleGen(event);
+          }}
+        >
+          {options.map((gen) => {
+            return (
+              <option key={gen} value={gen}>
+                {gen}
+              </option>
+            );
+          })}
+        </select>
+      </span> */}
 
       <span className={style.orderCont}>
         <label className={style.label}>Def Order:</label>

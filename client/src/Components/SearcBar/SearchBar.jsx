@@ -22,6 +22,7 @@ const SearchBar = () => {
     } else {
       dispatch(getPokemonsByName(data));
     }
+
     setData("");
   };
 
@@ -30,6 +31,7 @@ const SearchBar = () => {
       <input
         type="text"
         name="text"
+        defaultValue={data}
         className={style.input}
         onChange={(event) => {
           inputChange(event);

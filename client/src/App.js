@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./Views/Landing/Landing";
